@@ -1,10 +1,13 @@
 {
   "name": "jiqie-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Auto generate react project template",
-  "main": "index.js",
   "bin": {
     "jiqie-cli": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jiqiemuyi/jiqie-cli.git"
   },
   "keywords": [
     "react",
