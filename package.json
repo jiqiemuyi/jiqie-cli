@@ -6,16 +6,15 @@
   "bin": {
     "jiqie-cli": "./index.js"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --mode development",
-    "build": "webpack --mode production"
-  },
   "keywords": [
     "react",
     "cli",
     "scaffold"
   ],
   "author": "jiqiemuyi@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiqiemuyi/jiqie-cli/issues"
+  },
+  "homepage": "https://github.com/jiqiemuyi/jiqie-cli#readme"
 }
