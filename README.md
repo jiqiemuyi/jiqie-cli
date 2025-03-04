@@ -12,9 +12,9 @@ git config https.proxy https://127.0.0.1:7890
 
 ```ini
 [http]
-proxy = http://127.0.0.1:7890
+    proxy = http://127.0.0.1:7890
 [https]
-proxy = https://127.0.0.1:7890
+    proxy = https://127.0.0.1:7890
 ```
 
 运行以下命令，检查当前项目的 Git 配置：
@@ -36,4 +36,20 @@ https.proxy=https://127.0.0.1:7890
 ```bash
 git config --unset http.proxy
 git config --unset https.proxy
+```
+
+### .npmrc(公司源会导致发布 npm 失败)
+
+自定义配置 npm 源，在项目根目录下创建 .npmrc 文件，添加以下内容：
+
+```ini
+registry=https://registry.npm.taobao.org/
+```
+
+### .yarnrc
+
+自定义配置 yarn 源，在项目根目录下创建 .yarnrc 文件，添加以下内容：
+
+```ini
+registry "https://registry.npm.taobao.org/"
 ```
