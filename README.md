@@ -1,7 +1,7 @@
 ### 代理配置
 
 如果你的网络环境需要代理，请运行以下命令：
-如果是全局添加或查看 git config 命令后需跟 --global
+如果是全局添加 git config 命令后需跟 --global
 
 ```bash
 git config http.proxy http://127.0.0.1:7890
@@ -18,6 +18,7 @@ proxy = https://127.0.0.1:7890
 ```
 
 运行以下命令，检查当前项目的 Git 配置：
+如果是查看全局配置 --local 替换为 --global
 
 ```bash
 git config --local --list
