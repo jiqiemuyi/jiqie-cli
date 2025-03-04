@@ -1,10 +1,13 @@
 {
   "name": "jiqie-cli",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Auto generate react project template",
   "bin": {
     "jiqie-cli": "./index.js"
   },
+  "files": [
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:jiqiemuyi/jiqie-cli.git"
@@ -14,10 +17,15 @@
     "cli",
     "scaffold"
   ],
-  "author": "jiqiemuyi@gmail.com",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jiqiemuyi/jiqie-cli/issues"
-  },
-  "homepage": "https://github.com/jiqiemuyi/jiqie-cli#readme"
+  "homepage": "https://github.com/jiqiemuyi/jiqie-cli#readme",
+  "bugs": "https://github.com/jiqiemuyi/jiqie-cli/issues",
+  "author": "jiqiemuyi@gmail.com",
+  "contributors": [
+    {
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "url": "https://example.com/jane"
+    }
+  ]
 }
