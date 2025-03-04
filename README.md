@@ -45,7 +45,7 @@ git config --unset https.proxy
 自定义配置 npm 源，在项目根目录下创建 .npmrc 文件，添加以下内容：
 
 ```ini
-registry=https://registry.npm.taobao.org/
+registry=https://registry.npmjs.org/
 ```
 
 ### .yarnrc
@@ -53,5 +53,5 @@ registry=https://registry.npm.taobao.org/
 自定义配置 yarn 源，在项目根目录下创建 .yarnrc 文件，添加以下内容：
 
 ```ini
-registry "https://registry.npm.taobao.org/"
+registry "https://registry.npmjs.org/"
 ```
