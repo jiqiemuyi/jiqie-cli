@@ -2,7 +2,6 @@
 const fs = require("fs");
 const path = require("path");
 const { promisify } = require("util");
-const readline = require("readline");
 const { program } = require("commander");
 
 // 从package.json中获取版本号
@@ -15,19 +14,6 @@ const writeFile = promisify(fs.writeFile);
 
 // 模板路径
 const templateDir = path.join(__dirname, "./templates");
-
-// 获取命令行参数
-// const args = process.argv.slice(2);
-// const projectName = args[0];
-
-// if (!projectName) {
-//   console.error("Error: Please provide a project name.");
-//   console.error("Usage: jiqie-cli <project-name>");
-//   process.exit(1);
-// } else {
-//   console.log(process.argv);
-//   process.exit(1);
-// }
 
 // 创建项目的函数
 async function createProject(projectName) {
@@ -66,24 +52,16 @@ async function createProject(projectName) {
   console.log("  npm start");
 }
 
-// 读取用户输入
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-// });
-
-// rl.question("Enter project name: ", (projectName) => {
-//   rl.close();
-//   createProject(projectName);
-// });
-
-// createProject(projectName);
-
-// 使用 commander 解析命令行参数
 program
+  .name(Object.keys(packageJson.bin)[0])
+  .description("A CLI tool for managing React projects")
   .version(packageJson.version)
-  .name("jiqie-cli")
-  .arguments("<project-name>")
+  .showHelpAfterError(); // 启用错误后显示帮助信息
+
+// 定义 create 子命令
+program
+  .command("create <project-name>")
+  .description("Create a new project")
   .option(
     "-t, --template <template-name>",
     "Specify a template (default: default)",
@@ -91,7 +69,16 @@ program
   )
   .option("--typescript", "Use TypeScript for the project")
   .action((projectName, options) => {
-    console.log("bab", projectName, options);
+    console.log("log", projectName, options);
     createProject(projectName);
-  })
-  .parse(process.argv);
+  });
+
+// 定义 init 子命令
+program
+  .command("init")
+  .description("Initialize a configuration file")
+  .action(() => {
+    console.log("Initializing configuration file...");
+  });
+
+program.parse(process.argv);
