@@ -40,9 +40,9 @@ git config --unset http.proxy
 git config --unset https.proxy
 ```
 
-### .npmrc(公司源会导致发布 npm 失败)
+### .npmrc(自定义源可能会导致发布 npm 失败)
 
-自定义配置 npm 源，在项目根目录下创建 .npmrc 文件，添加以下内容：
+固定项目 npm 源，在项目根目录下创建 .npmrc 文件，添加以下内容：
 
 ```ini
 registry=https://registry.npmjs.org/
@@ -50,7 +50,7 @@ registry=https://registry.npmjs.org/
 
 ### .yarnrc
 
-自定义配置 yarn 源，在项目根目录下创建 .yarnrc 文件，添加以下内容：
+固定项目 yarn 源，在项目根目录下创建 .yarnrc 文件，添加以下内容：
 
 ```ini
 registry "https://registry.npmjs.org/"
