@@ -3,6 +3,10 @@ const fs = require("fs");
 const path = require("path");
 const { promisify } = require("util");
 const readline = require("readline");
+const { program } = require("commander");
+
+// 从package.json中获取版本号
+const packageJson = require("./package.json");
 
 // 将回调函数转换为 Promise
 const mkdir = promisify(fs.mkdir);
@@ -11,6 +15,19 @@ const writeFile = promisify(fs.writeFile);
 
 // 模板路径
 const templateDir = path.join(__dirname, "./templates");
+
+// 获取命令行参数
+// const args = process.argv.slice(2);
+// const projectName = args[0];
+
+// if (!projectName) {
+//   console.error("Error: Please provide a project name.");
+//   console.error("Usage: jiqie-cli <project-name>");
+//   process.exit(1);
+// } else {
+//   console.log(process.argv);
+//   process.exit(1);
+// }
 
 // 创建项目的函数
 async function createProject(projectName) {
@@ -50,12 +67,31 @@ async function createProject(projectName) {
 }
 
 // 读取用户输入
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+// });
 
-rl.question("Enter project name: ", (projectName) => {
-  rl.close();
-  createProject(projectName);
-});
+// rl.question("Enter project name: ", (projectName) => {
+//   rl.close();
+//   createProject(projectName);
+// });
+
+// createProject(projectName);
+
+// 使用 commander 解析命令行参数
+program
+  .version(packageJson.version)
+  .name("jiqie-cli")
+  .arguments("<project-name>")
+  .option(
+    "-t, --template <template-name>",
+    "Specify a template (default: default)",
+    "default"
+  )
+  .option("--typescript", "Use TypeScript for the project")
+  .action((projectName, options) => {
+    console.log("bab", projectName, options);
+    createProject(projectName);
+  })
+  .parse(process.argv);

@@ -24,5 +24,8 @@
   "author": {
     "name": "jiqiemuyi",
     "email": "jiqiemuyi@gmail.com"
+  },
+  "dependencies": {
+    "commander": "^13.1.0"
   }
 }
