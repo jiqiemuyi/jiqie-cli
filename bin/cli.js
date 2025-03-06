@@ -6,7 +6,7 @@ const pkg = require("../package.json");
 (async () => {
   const updateNotifier = await import("update-notifier");
   // 使用 updateNotifier
-  updateNotifier({ pkg }).notify();
+  updateNotifier.default({ pkg }).notify();
 })();
 
 program
