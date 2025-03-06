@@ -1,6 +1,6 @@
 {
   "name": "jiqie-cli",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Auto generate react project template",
   "bin": {
     "jiqie-cli": "./bin/cli.js"
