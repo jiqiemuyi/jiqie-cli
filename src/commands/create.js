@@ -1,11 +1,6 @@
-#!/usr/bin/env node
 const fs = require("fs");
-const path = require("path");
 const { promisify } = require("util");
-const { program } = require("commander");
-
-// 从package.json中获取版本号
-const packageJson = require("./package.json");
+const path = require("path");
 
 // 将回调函数转换为 Promise
 const mkdir = promisify(fs.mkdir);
@@ -13,8 +8,7 @@ const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
 // 模板路径
-const templateDir = path.join(__dirname, "./templates");
-
+const templateDir = path.join(__dirname, "../../templates");
 // 创建项目的函数
 async function createProject(projectName) {
   const projectDir = path.join(process.cwd(), projectName);
@@ -51,34 +45,4 @@ async function createProject(projectName) {
   console.log("  npm install");
   console.log("  npm start");
 }
-
-program
-  .name(Object.keys(packageJson.bin)[0])
-  .description("A CLI tool for managing React projects")
-  .version(packageJson.version)
-  .showHelpAfterError(); // 启用错误后显示帮助信息
-
-// 定义 create 子命令
-program
-  .command("create <project-name>")
-  .description("Create a new project")
-  .option(
-    "-t, --template <template-name>",
-    "Specify a template (default: default)",
-    "default"
-  )
-  .option("--typescript", "Use TypeScript for the project")
-  .action((projectName, options) => {
-    console.log("log", projectName, options);
-    createProject(projectName);
-  });
-
-// 定义 init 子命令
-program
-  .command("init")
-  .description("Initialize a configuration file")
-  .action(() => {
-    console.log("Initializing configuration file...");
-  });
-
-program.parse(process.argv);
+module.exports = createProject;
