@@ -19,6 +19,7 @@
     "cli",
     "scaffold"
   ],
+  "type": "commonjs",
   "license": "ISC",
   "homepage": "https://github.com/jiqiemuyi/jiqie-cli#readme",
   "bugs": "https://github.com/jiqiemuyi/jiqie-cli/issues",
@@ -28,6 +29,6 @@
   },
   "dependencies": {
     "commander": "^13.1.0",
-    "update-notifier": "^7.3.1"
+    "update-notifier": "^4.1.3"
   }
 }

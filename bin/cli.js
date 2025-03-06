@@ -1,13 +1,9 @@
 #!/usr/bin/env node
 const { program } = require("commander");
+const updateNotifier = require("update-notifier");
 const pkg = require("../package.json");
-
 // 检查更新
-(async () => {
-  const updateNotifier = await import("update-notifier");
-  // 使用 updateNotifier
-  updateNotifier.default({ pkg }).notify();
-})();
+updateNotifier({ pkg }).notify();
 
 program
   .name(Object.keys(pkg.bin)[0])
